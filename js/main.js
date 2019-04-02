@@ -1,18 +1,30 @@
-var calmSongs = [
-  {song: "velvetlight.mp3"}, {song: "boywithacoin.mp3"}
-]
+console.log("Hiya!");
+
 
 $(document).ready(function(){
-  $("calmBtn").click(function () {
-    e.preventDefault();
 
-    var target = e.target;
+  // var nbc = $("#calmBtn");
+console.log("Hellllo");
+  $("#calmBtn").click(function (e) {
+        e.preventDefault();
 
-    var audio = $("#calm");
-    var source = $("#source");
+        var calmSongs = [
+          {song: "velvetlight.mp3"}, {song: "boywithacoin.mp3"}
+        ];
 
-    console.log(audio);
+        var target = e.target;
 
+        var audio = $("#calm");
+        var source = $("#source");
 
-  })
-})
+        console.log(audio);
+
+        var controls = Math.floor(Math.random()*calmSongs.length);
+
+        source.src="audio/" +calmSongs[controls].song;
+
+        audio.load();
+        console.log("areyouhere");
+        audio.play();
+  });
+});
