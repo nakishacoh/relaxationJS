@@ -5,7 +5,7 @@ $(document).ready(function(){
 
   // var nbc = $("#calmBtn");
 console.log("Hellllo");
-  $("#calmBtn").click(function (e) {
+  $("#calmBtn").on("click",function (e) {
         e.preventDefault();
 
         var calmSongs = [
@@ -14,17 +14,19 @@ console.log("Hellllo");
 
         var target = e.target;
 
-        var audio = $("#calm");
-        var source = $("#source");
+        var au = $("#calm");
+        //var so = $("#source");
 
-        console.log(audio);
+        console.log(au);
 
         var controls = Math.floor(Math.random()*calmSongs.length);
+        console.log(controls);
 
-        source.src="audio/" +calmSongs[controls].song;
+        var stp = "audio/" +calmSongs[controls].song;
+        console.log(stp);
+        au.src= stp;
 
-        audio.load();
-        console.log("areyouhere");
-        audio.play();
+        au.load();
+        au.play();
   });
 });
