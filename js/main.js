@@ -14,7 +14,7 @@ console.log("Hellllo");
 
         var target = e.target;
 
-        var au = $("#calm");
+        var au = document.getElementById("calm");
         //var so = $("#source");
 
         console.log(au);
@@ -26,7 +26,7 @@ console.log("Hellllo");
         console.log(stp);
         au.src= stp;
 
-        au.load();
+        // au.load();
         au.play();
   });
 });
