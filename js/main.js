@@ -1,35 +1,76 @@
 console.log("Hiya!");
 
+// Make canvas full body
+var canvas = document.querySelector('canvas');
 
-// $(document).ready(function(){
-//
-//   // var nbc = $("#calmBtn");
-// console.log("Hellllo");
-//   $("#calmBtn").on("click",function (e) {
-//         e.preventDefault();
-//
-//         var calmSongs = [
-//           {song: "velvetlight.mp3"}, {song: "boywithacoin.mp3"}
-//         ];
-//
-//         var target = e.target;
-//
-//         var au = document.getElementById("calm");
-//         //var so = $("#source");
-//
-//         console.log(au);
-//
-//         var controls = Math.floor(Math.random()*calmSongs.length);
-//         console.log(controls);
-//
-//         var stp = "audio/" +calmSongs[controls].song;
-//         console.log(stp);
-//         au.src= stp;
-//
-//         // au.load();
-//         au.play();
-//   });
-// });
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+console.log(canvas);
+
+
+$(document).ready(function(){
+
+  $('#default-state-cta').on('click', function(event) {
+      event.preventDefault();
+
+      var calmSongs = [
+        {song: "velvetlight.mp3"}, {song: "boywithacoin.mp3"}
+      ];
+
+      var target = event.target;
+
+      var au = document.getElementById("calm");
+      au.src= stp;
+      // au.load();
+
+      const playCalm = au.play()
+      alert("Error with mp3 file!");;
+      if (playCalm !== null){
+      playCalm.catch(() => { au.play(); })
+      }
+
+      console.log(au);
+
+      var controls = Math.floor(Math.random()*calmSongs.length);
+      console.log(controls);
+
+      var stp = "audio/" +calmSongs[controls].song;
+      console.log(stp);
+
+
+
+
+      granimInstance.changeState('default-state');
+      setClass('#default-state-cta')
+  });
+
+  // var nbc = $("#calmBtn");
+console.log("Hellllo");
+  // $("#calmBtn").on("click",function (e) {
+        // e.preventDefault();
+
+        // var calmSongs = [
+        //   {song: "velvetlight.mp3"}, {song: "boywithacoin.mp3"}
+        // ];
+
+        // var target = e.target;
+
+        // var au = document.getElementById("calm");
+        //var so = $("#source");
+
+        // console.log(au);
+
+        // var controls = Math.floor(Math.random()*calmSongs.length);
+        // console.log(controls);
+
+        // var stp = "audio/" +calmSongs[controls].song;
+        // console.log(stp);
+        // au.src= stp;
+
+        // au.load();
+        // au.play();
+  // });
+});
 
 
 
@@ -66,16 +107,46 @@ var granimInstance = new Granim({
 });
 
 // With jQuery
-$('#default-state-cta').on('click', function(event) {
-    event.preventDefault();
-    granimInstance.changeState('default-state');
-    setClass('#default-state-cta')
-});
+// $('#default-state-cta').on('click', function(event) {
+//     event.preventDefault();
+//
+//     var calmSongs = [
+//       {song: "velvetlight.mp3"}, {song: "boywithacoin.mp3"}
+//     ];
+//
+//     var target = event.target;
+//
+//     var au = document.getElementById("calm");
+//     au.src= stp;
+//     // au.load();
+//
+//     const playCalm = au.play()
+//     alert("Error with mp3 file!");;
+//     if (playCalm !== null){
+//     playCalm.catch(() => { au.play(); })
+//     }
+//
+//     console.log(au);
+//
+//     var controls = Math.floor(Math.random()*calmSongs.length);
+//     console.log(controls);
+//
+//     var stp = "audio/" +calmSongs[controls].song;
+//     console.log(stp);
+//
+//
+//
+//
+//     granimInstance.changeState('default-state');
+//     setClass('#default-state-cta')
+// });
+
 $('#violet-state-cta').on('click', function(event) {
     event.preventDefault();
     granimInstance.changeState('violet-state');
     setClass('#violet-state-cta')
 });
+
 $('#orange-state-cta').on('click', function(event) {
     event.preventDefault();
     granimInstance.changeState('orange-state');
